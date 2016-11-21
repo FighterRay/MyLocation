@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E27B9F871DD3287B005FDA62 /* MyLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E27B9F871DD3287B005FDA62 /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27B9F8A1DD3287B005FDA62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E27B9F8C1DD3287B005FDA62 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
 		E27B9F8E1DD3287B005FDA62 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		E27B9F881DD3287B005FDA62 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E27B9F871DD3287B005FDA62 /* MyLocation.app */,
+				E27B9F871DD3287B005FDA62 /* MyLocations.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E27B9F861DD3287B005FDA62 /* MyLocation */ = {
+		E27B9F861DD3287B005FDA62 /* MyLocations */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E27B9F9B1DD3287B005FDA62 /* Build configuration list for PBXNativeTarget "MyLocation" */;
+			buildConfigurationList = E27B9F9B1DD3287B005FDA62 /* Build configuration list for PBXNativeTarget "MyLocations" */;
 			buildPhases = (
 				E27B9F831DD3287B005FDA62 /* Sources */,
 				E27B9F841DD3287B005FDA62 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = MyLocation;
+			name = MyLocations;
 			productName = MyLocation;
-			productReference = E27B9F871DD3287B005FDA62 /* MyLocation.app */;
+			productReference = E27B9F871DD3287B005FDA62 /* MyLocations.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +104,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E27B9F821DD3287B005FDA62 /* Build configuration list for PBXProject "MyLocation" */;
+			buildConfigurationList = E27B9F821DD3287B005FDA62 /* Build configuration list for PBXProject "MyLocations" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -117,7 +117,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E27B9F861DD3287B005FDA62 /* MyLocation */,
+				E27B9F861DD3287B005FDA62 /* MyLocations */,
 			);
 		};
 /* End PBXProject section */
@@ -290,7 +290,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E27B9F821DD3287B005FDA62 /* Build configuration list for PBXProject "MyLocation" */ = {
+		E27B9F821DD3287B005FDA62 /* Build configuration list for PBXProject "MyLocations" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E27B9F991DD3287B005FDA62 /* Debug */,
@@ -299,7 +299,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E27B9F9B1DD3287B005FDA62 /* Build configuration list for PBXNativeTarget "MyLocation" */ = {
+		E27B9F9B1DD3287B005FDA62 /* Build configuration list for PBXNativeTarget "MyLocations" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E27B9F9C1DD3287B005FDA62 /* Debug */,

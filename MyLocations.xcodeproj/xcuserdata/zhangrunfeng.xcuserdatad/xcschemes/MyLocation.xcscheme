@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E27B9F861DD3287B005FDA62"
-               BuildableName = "MyLocation.app"
-               BlueprintName = "MyLocation"
-               ReferencedContainer = "container:MyLocation.xcodeproj">
+               BuildableName = "MyLocations.app"
+               BlueprintName = "MyLocations"
+               ReferencedContainer = "container:MyLocations.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E27B9F861DD3287B005FDA62"
-            BuildableName = "MyLocation.app"
-            BlueprintName = "MyLocation"
-            ReferencedContainer = "container:MyLocation.xcodeproj">
+            BuildableName = "MyLocations.app"
+            BlueprintName = "MyLocations"
+            ReferencedContainer = "container:MyLocations.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E27B9F861DD3287B005FDA62"
-            BuildableName = "MyLocation.app"
-            BlueprintName = "MyLocation"
-            ReferencedContainer = "container:MyLocation.xcodeproj">
+            BuildableName = "MyLocations.app"
+            BlueprintName = "MyLocations"
+            ReferencedContainer = "container:MyLocations.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E27B9F861DD3287B005FDA62"
-            BuildableName = "MyLocation.app"
-            BlueprintName = "MyLocation"
-            ReferencedContainer = "container:MyLocation.xcodeproj">
+            BuildableName = "MyLocations.app"
+            BlueprintName = "MyLocations"
+            ReferencedContainer = "container:MyLocations.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
