@@ -262,6 +262,12 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     }
     
     func string(from placemark: CLPlacemark) -> String {
+        var line0 = ""
+        
+        if let s = placemark.name {
+            line0 += s
+        }
+        
         var line1 = ""
         
         if let s = placemark.subThoroughfare {
@@ -286,7 +292,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             line2 += s // postal code
         }
         
-        return line1 + "\n" + line2
+        return line0 + "\n" + line1 + "\n" + line2
     }
 }
 
