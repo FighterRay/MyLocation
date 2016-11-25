@@ -76,7 +76,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Tag Location"/>
                                 <connections>
-                                    <segue destination="ImV-tQ-kLs" kind="presentation" id="LTA-VG-qQ8"/>
+                                    <segue destination="ImV-tQ-kLs" kind="presentation" identifier="TagLocation" id="LTA-VG-qQ8"/>
                                 </connections>
                             </button>
                         </subviews>
