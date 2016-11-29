@@ -14,6 +14,7 @@
 		E27B9F941DD3287B005FDA62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27B9F931DD3287B005FDA62 /* Assets.xcassets */; };
 		E27B9F971DD3287B005FDA62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27B9F951DD3287B005FDA62 /* LaunchScreen.storyboard */; };
 		E2A765FD1DE6FB4B00EEAECE /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A765FC1DE6FB4B00EEAECE /* LocationDetailsViewController.swift */; };
+		E2DBDF041DED793E00397750 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBDF031DED793E00397750 /* CategoryPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E27B9F961DD3287B005FDA62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E27B9F981DD3287B005FDA62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2A765FC1DE6FB4B00EEAECE /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
+		E2DBDF031DED793E00397750 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				E27B9F8C1DD3287B005FDA62 /* CurrentLocationViewController.swift */,
 				E27B9F8E1DD3287B005FDA62 /* SecondViewController.swift */,
 				E2A765FC1DE6FB4B00EEAECE /* LocationDetailsViewController.swift */,
+				E2DBDF031DED793E00397750 /* CategoryPickerViewController.swift */,
 				E27B9F901DD3287B005FDA62 /* Main.storyboard */,
 				E27B9F931DD3287B005FDA62 /* Assets.xcassets */,
 				E27B9F951DD3287B005FDA62 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 				E2A765FD1DE6FB4B00EEAECE /* LocationDetailsViewController.swift in Sources */,
 				E27B9F8F1DD3287B005FDA62 /* SecondViewController.swift in Sources */,
 				E27B9F8B1DD3287B005FDA62 /* AppDelegate.swift in Sources */,
+				E2DBDF041DED793E00397750 /* CategoryPickerViewController.swift in Sources */,
 				E27B9F8D1DD3287B005FDA62 /* CurrentLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
