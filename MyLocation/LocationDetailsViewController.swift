@@ -80,7 +80,12 @@ class LocationDetailsViewController: UITableViewController {
     }
     
     @IBAction func done(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        let hubView = HubView.hub(inView: navigationController!.view, animated: true)
+        hubView.text = "Tagged"
+        
+        delayAfter(0.6, closure: {
+            self.dismiss(animated: true, completion: nil)
+        })
     }
 
     // MARK: - Tabel View Delegate
