@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -30,6 +31,10 @@ class LocationDetailsViewController: UITableViewController {
     
     var categoryName = "No Category"
     
+    // Core Data
+    var managedObjectContext: NSManagedObjectContext!
+    var date = Date()
+    
     override func viewDidLoad() {
         descriptionTextView.text = ""
         catogaryLabel.text = categoryName
@@ -43,7 +48,7 @@ class LocationDetailsViewController: UITableViewController {
             addressLabel.text = "No Address Found"
         }
         
-        dateLabel.text = format(date: Date())
+        dateLabel.text = format(date: date)
     }
     
     func string(from placemark: CLPlacemark) -> String {
@@ -83,9 +88,24 @@ class LocationDetailsViewController: UITableViewController {
         let hubView = HubView.hub(inView: navigationController!.view, animated: true)
         hubView.text = "Tagged"
         
-        delayAfter(0.6, closure: {
-            self.dismiss(animated: true, completion: nil)
-        })
+        let location = Location(context: managedObjectContext)
+        
+        location.locationDescription = descriptionTextView.text
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+        
+        do {
+            try managedObjectContext.save()
+            
+            afterDelay(0.6, closure: {
+                self.dismiss(animated: true, completion: nil)
+            })
+        } catch {
+            fatalCoreDataError(error)
+        }
     }
 
     // MARK: - Tabel View Delegate

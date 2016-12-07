@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -32,6 +33,9 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     
     // Avoid timeout
     var timer: Timer?
+    
+    // Core Data (dependency injection)
+    var managedObjectContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -295,7 +299,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         return line0 + "\n" + line1 + "\n" + line2
     }
     
-    // MARK: -
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TagLocation" {
             let navigeteController = segue.destination as! UINavigationController
@@ -303,6 +307,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             
             controller.coordinate = location!.coordinate
             controller.placemark = placemark
+            controller.managedObjectContext = managedObjectContext
         }
     }
 }
