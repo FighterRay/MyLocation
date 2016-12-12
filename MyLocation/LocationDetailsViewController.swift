@@ -31,12 +31,34 @@ class LocationDetailsViewController: UITableViewController {
     
     var categoryName = "No Category"
     
+    // For Edit Mode
+    
+    // In Add Mode it will be nil
+    var locationToEdit: Location? {
+        // Called before viewDidLoad mathod
+        didSet {
+            if let location = locationToEdit {
+                descriptionText = location.locationDescription
+                categoryName = location.category
+                date = location.date
+                coordinate = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+            }
+        }
+    }
+    var descriptionText = ""
+    
     // Core Data
     var managedObjectContext: NSManagedObjectContext!
     var date = Date()
     
     override func viewDidLoad() {
-        descriptionTextView.text = ""
+        super.viewDidLoad()
+        
+        if let location = locationToEdit {
+            title = "Edit Location"
+        }
+        
+        descriptionTextView.text = descriptionText
         catogaryLabel.text = categoryName
         
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
@@ -86,9 +108,15 @@ class LocationDetailsViewController: UITableViewController {
     
     @IBAction func done(_ sender: UIBarButtonItem) {
         let hubView = HubView.hub(inView: navigationController!.view, animated: true)
-        hubView.text = "Tagged"
         
-        let location = Location(context: managedObjectContext)
+        let location: Location
+        if let temp = locationToEdit {
+            hubView.text = "Updated"
+            location = temp
+        } else {
+            hubView.text = "Tagged"
+            location = Location(context: managedObjectContext)
+        }
         
         location.locationDescription = descriptionTextView.text
         location.category = categoryName
