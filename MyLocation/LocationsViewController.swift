@@ -30,7 +30,7 @@ class LocationsViewController: UITableViewController {
         let fetchedResultController =
             NSFetchedResultsController(fetchRequest: fetchRequest,
                                 managedObjectContext: self.managedObjectContext,
-                                sectionNameKeyPath: nil,
+                                sectionNameKeyPath: "category",
                                 cacheName: "Locations")
         
         fetchedResultController.delegate = self
@@ -39,6 +39,7 @@ class LocationsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         performFetch()
         navigationItem.rightBarButtonItem = editButtonItem
     }
@@ -51,20 +52,20 @@ class LocationsViewController: UITableViewController {
         }
     }
     
-    // MARK: - Table View Delegate
+    // MARK: - UITableViewDataSource
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultController.sections!.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectionInfo = fetchedResultController.sections![section]
+        return sectionInfo.name
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultController.sections![section]
         return sectionInfo.numberOfObjects
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
-        
-        let location = fetchedResultController.object(at: indexPath)
-        
-        cell.configure(for: location)
-        
-        return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -78,6 +79,17 @@ class LocationsViewController: UITableViewController {
                 fatalCoreDataError(error)
             }
         }
+    }
+    
+    // MARK: - UITableViewDelegate
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
+        
+        let location = fetchedResultController.object(at: indexPath)
+        
+        cell.configure(for: location)
+        
+        return cell
     }
     
     // MARK: - Navigation
@@ -119,7 +131,7 @@ extension LocationsViewController: NSFetchedResultsControllerDelegate {
             tableView.insertRows(at: [newIndexPath!], with: .fade)
         case .delete:
             print("*** NSFetchedResultsChangeDelete (object)")
-            tableView.deleteRows(at: [newIndexPath!], with: .fade)
+            tableView.deleteRows(at: [indexPath!], with: .fade)
         case .update:
             print("*** NSFetchedResultsChangeUpdate (object)")
             if let cell = tableView.cellForRow(at: indexPath!) as? LocationCell{

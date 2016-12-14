@@ -54,7 +54,7 @@ class LocationDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let location = locationToEdit {
+        if locationToEdit != nil {
             title = "Edit Location"
         }
         
