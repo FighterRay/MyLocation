@@ -25,11 +25,14 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addPhotoLabel: UILabel!
     
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
     
     var categoryName = "No Category"
+    var observer: Any! //use for dismiss alertVC when app did enter background
     
     // For Edit Mode
     
@@ -71,6 +74,9 @@ class LocationDetailsViewController: UITableViewController {
         }
         
         dateLabel.text = format(date: date)
+        
+        // dismiss when enter background
+        listenForBackgroundNotification()
     }
     
     func string(from placemark: CLPlacemark) -> String {
@@ -151,15 +157,29 @@ class LocationDetailsViewController: UITableViewController {
     
     // MARK: - Tabel View Delegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 && indexPath.row == 0 {
+        
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0):
             return 88
-        } else if indexPath.section == 2 && indexPath.row == 2 {
+            
+        case (1, _):
+            if let image = image {
+                let ratio = image.size.width / image.size.height
+                let height = 260 / ratio
+                
+                return imageView.isHidden ? 44 : height + 20
+            }
+            
+            return imageView.isHidden ? 44 : 280
+        
+        case (2, 2):
             addressLabel.frame.size = CGSize(width: view.bounds.size.width - 115, height: 10000)
             addressLabel.sizeToFit()
             addressLabel.frame.origin.x = view.bounds.size.width - addressLabel.frame.size.width - 15;
             addressLabel.bounds.origin = CGPoint(x: 10, y: 10)
             return addressLabel.frame.size.height + 20
-        } else {
+            
+        default:
             return 44
         }
     }
@@ -180,6 +200,22 @@ class LocationDetailsViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
             pickPhoto()
         }
+    }
+    
+    // MARK: - Add image
+    var image: UIImage?
+    
+    func show(image: UIImage) {
+        imageView.image = image
+        imageView.isHidden = false
+        imageView.frame = CGRect(x: 10, y: 10, width: 260, height: 260)
+        addPhotoLabel.isHidden = true
+    }
+    
+    // Tell the NotificationCenter to stop sending notification when close this VC
+    deinit {
+        print("*** deinit \(self)")
+        NotificationCenter.default.removeObserver(observer)
     }
 }
 
@@ -233,10 +269,30 @@ extension LocationDetailsViewController: UIImagePickerControllerDelegate, UINavi
     // MARK: UIImagePickerControllerDelegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        image = info[UIImagePickerControllerEditedImage] as? UIImage
+        
+        if let theImage = image {
+            show(image: theImage)
+        }
+        tableView.reloadData()
         dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    // Dismiss when app did enter background
+    
+    func listenForBackgroundNotification() {
+        observer = NotificationCenter.default.addObserver(forName: Notification.Name.UIApplicationDidEnterBackground, object: nil, queue: OperationQueue.main) { [weak self] _ in
+            if let strongSelf = self {
+                if strongSelf.presentedViewController != nil {
+                    strongSelf.dismiss(animated: false, completion: nil)
+                }
+                
+                strongSelf.descriptionTextView.resignFirstResponder()
+            }
+        }
     }
 }

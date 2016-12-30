@@ -28,8 +28,8 @@
 
 /* Begin PBXFileReference section */
 		E227FAF31DF6BA6200A2DE79 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		E227FAF91DF6FACE00A2DE79 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E227FAFA1DF6FACE00A2DE79 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E227FAF91DF6FACE00A2DE79 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataClass.swift"; path = "../Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E227FAFA1DF6FACE00A2DE79 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataProperties.swift"; path = "../Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E236DCB01DFAEA55008D11C8 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		E236DCB21DFBE099008D11C8 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		E25780861E0032840029BB63 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -60,6 +60,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E23955121E16B82200D20149 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				E227FAF21DF6BA6200A2DE79 /* DataModel.xcdatamodeld */,
+				E227FAF91DF6FACE00A2DE79 /* Location+CoreDataClass.swift */,
+				E227FAFA1DF6FACE00A2DE79 /* Location+CoreDataProperties.swift */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
 		E25780851E0032840029BB63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,8 +81,6 @@
 		E27B9F7E1DD3287B005FDA62 = {
 			isa = PBXGroup;
 			children = (
-				E227FAF91DF6FACE00A2DE79 /* Location+CoreDataClass.swift */,
-				E227FAFA1DF6FACE00A2DE79 /* Location+CoreDataProperties.swift */,
 				E27B9F891DD3287B005FDA62 /* MyLocation */,
 				E27B9F881DD3287B005FDA62 /* Products */,
 				E25780851E0032840029BB63 /* Frameworks */,
@@ -100,8 +108,8 @@
 				E2909FE61DF5A46F0053FC8B /* HubView.swift */,
 				E2909FE81DF5ADA80053FC8B /* Founctions.swift */,
 				E25780881E0042A50029BB63 /* MapViewController.swift */,
-				E227FAF21DF6BA6200A2DE79 /* DataModel.xcdatamodeld */,
 				E27B9F901DD3287B005FDA62 /* Main.storyboard */,
+				E23955121E16B82200D20149 /* DataModel */,
 				E27B9F931DD3287B005FDA62 /* Assets.xcassets */,
 				E27B9F951DD3287B005FDA62 /* LaunchScreen.storyboard */,
 				E27B9F981DD3287B005FDA62 /* Info.plist */,
