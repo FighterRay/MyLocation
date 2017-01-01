@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             mapViewController.managedObjectContext = managedObjectContext
         }
         
-        print(applicationDocumentDirectory)
+        print("*** The applicationDocumentDirectory is :\(applicationDocumentDirectory)")
         
         // CoreData Error Handling
         listenForFatalCoreDataNotification()
