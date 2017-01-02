@@ -265,38 +265,28 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         }
     }
     
+    func add(text: String?, toLine line: String, separatedBy separator: String) -> String {
+        var result = line
+        if let text = text {
+            if !line.isEmpty {
+                result += separator
+            }
+            result += text
+        }
+        return result
+    }
+    
     func string(from placemark: CLPlacemark) -> String {
-        var line0 = ""
-        
-        if let s = placemark.name {
-            line0 += s
-        }
-        
         var line1 = ""
-        
-        if let s = placemark.subThoroughfare {
-            line1 += s // house number
-        }
-        
-        if let s = placemark.thoroughfare {
-            line1 += s // street name
-        }
+        line1.add(text: placemark.subThoroughfare)
+        line1 = add(text: placemark.thoroughfare, toLine: line1, separatedBy: " ")
         
         var line2 = ""
+        line2.add(text: placemark.locality)
+        line2 = add(text: placemark.administrativeArea, toLine: line2, separatedBy: " ")
+        line2 = add(text: placemark.postalCode, toLine: line2, separatedBy: " ")
         
-        if let s = placemark.locality {
-            line2 += s // the city
-        }
-        
-        if let s = placemark.administrativeArea {
-            line2 += s // the province
-        }
-        
-        if let s = placemark.postalCode {
-            line2 += s // postal code
-        }
-        
-        return line0 + "\n" + line1 + "\n" + line2
+        return add(text: line2, toLine: line1, separatedBy: "\n")
     }
     
     // MARK: - Navigation
